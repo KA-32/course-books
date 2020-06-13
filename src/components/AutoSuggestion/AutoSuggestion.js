@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./AutoSuggestion.css";
 
@@ -24,6 +25,15 @@ const AutoSuggestion = (props) => {
       })}
     </ul>
   );
+};
+
+AutoSuggestion.propTypes = {
+  data: PropTypes.array.isRequired,
+  onSelected: PropTypes.func.isRequired,
+};
+
+AutoSuggestion.defaultProps = {
+  data: [],
 };
 
 export default AutoSuggestion;

@@ -1,0 +1,40 @@
+.form-search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4em;
+  position: relative;
+  width: 100%;
+}
+
+.form-search .search-input {
+  font-size: 1rem;
+  outline: none;
+  padding: 10px;
+  width: 15rem;
+}
+
+.form-search .form-submit-btn {
+  border: none;
+  padding: 0 2em;
+  cursor: pointer;
+}
+
+.form-search .form-submit-btn:disabled {
+  background-color: gray;
+  cursor: initial;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type="text"] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+.form-submit-btn {
+  background-color: DodgerBlue;
+  color: #fff;
+}

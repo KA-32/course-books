@@ -5,7 +5,8 @@ import SearchBox from "./SearchBox";
 
 describe("Seacrh Input Box", () => {
   test("Should match snapshot", () => {
-    const searchBox = render(<SearchBox />);
+    const titles = [];
+    const searchBox = render(<SearchBox titles={titles} />);
     expect(searchBox).toMatchSnapshot();
   });
 });

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import AutoSuggestion from "../AutoSuggestion/AutoSuggestion";
 
@@ -62,6 +63,15 @@ const SearchBox = (props) => {
       </form>
     </div>
   );
+};
+
+SearchBox.propTypes = {
+  titles: PropTypes.array.isRequired,
+  addBook: PropTypes.func.isRequired,
+};
+
+SearchBox.defaultProps = {
+  titles: [],
 };
 
 export default SearchBox;

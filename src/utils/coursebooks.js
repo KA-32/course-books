@@ -9,8 +9,8 @@ import data from "../data/data.json";
 
 class CourseBooks {
   constructor() {
-    this.titles = data.titles;
-    this.authors = data.authors;
+    this.titles = data.titles ? data.titles : [];
+    this.authors = data.authors ? data.authors : [];
     this.summaries = data.summaries.map((value) => {
       let summary = value;
       summary.relevance = 0;
@@ -19,7 +19,7 @@ class CourseBooks {
   }
 
   find(query) {
-    console.log(query);
+    // console.log(query);
     this.summaries.forEach((value) => {
       if (value.summary.indexOf(query) > -1) {
         value.relevance++;
@@ -36,23 +36,34 @@ class CourseBooks {
     // console.log("Summaries", this.summaries);
   }
 
+  getTitleIndex(value) {
+    return this.titles.findIndex((title) => title === value);
+  }
+
   getCoursebook(value) {
     let courseBook = {};
-    let indexOfTitle = this.titles.findIndex((title) => title === value);
-    let summary = this.summaries[indexOfTitle];
-    let author = this.authors[indexOfTitle];
+    let indexOfTitle = this.getTitleIndex(value);
+    let summary = this.summaries[indexOfTitle];//one to one match to title and summary
+    let author = this.authors[indexOfTitle];//one to one match title and author
+
     courseBook.title = value;
     courseBook.author = author.author;
     courseBook.description = summary.summary;
+
     return courseBook;
   }
 
-  getTitles() {
+  getAllTitles() {
     return this.titles;
+  }
+
+  getSummaries() {
+    return this.summaries;
+  }
+
+  getAuthors() {
+    return this.authors;
   }
 }
 
-let newSearch = new CourseBooks();
-Object.freeze(newSearch);
-
-export default newSearch;
+export default new CourseBooks();

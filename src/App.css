@@ -10,3 +10,7 @@ body {
   flex-wrap: wrap;
   margin-bottom: 60px;
 }
+
+.title {
+  margin: 2em 0;
+}

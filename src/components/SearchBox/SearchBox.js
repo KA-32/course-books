@@ -34,30 +34,32 @@ const SearchBox = (props) => {
 
   return (
     <div className="form-search">
-      <input
-        type="text"
-        aria-required="true"
-        aria-label="Search box"
-        name="book-search"
-        placeholder="Enter book name"
-        className="search-input"
-        value={searchQuery}
-        onChange={(e) => {
-          handleTextChange(e.target.value);
-        }}
-      />
-      {searchQuery && isSuggestionsVisible && (
-        <AutoSuggestion onSelected={onSelected} data={suggestions} />
-      )}
-      <button
-        onClick={(e) => {
-          handleSubmit(e);
-        }}
-        disabled={isSearchQuerySelected ? false : true}
-        className="form-submit-btn"
-      >
-        Submit
-      </button>
+      <form>
+        <input
+          type="text"
+          aria-required="true"
+          aria-label="Search box"
+          name="book-search"
+          placeholder="Enter book name"
+          className="search-input"
+          value={searchQuery}
+          onChange={(e) => {
+            handleTextChange(e.target.value);
+          }}
+        />
+        {searchQuery && isSuggestionsVisible && (
+          <AutoSuggestion onSelected={onSelected} data={suggestions} />
+        )}
+        <button
+          onClick={(e) => {
+            handleSubmit(e);
+          }}
+          disabled={isSearchQuerySelected ? false : true}
+          className="form-submit-btn"
+        >
+          Submit
+        </button>
+      </form>
     </div>
   );
 };

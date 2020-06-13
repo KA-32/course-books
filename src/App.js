@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
+import localData from "./data/data.json";
+
+import SearchBox from "./components/SearchBox/SearchBox";
+import CourseList from "./components/CourseList/CourseList";
+import Search from "./utils/search";
+
+import "./App.css";
+
+const App = () => {
+  const [filteredBooks, setBooks] = useState([]);
+
+  useEffect(() => {
+    Search.find("Practicing meditation");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const addBook = (value) => {
+    let newCourseBook = Search.getCoursebook(value);
+    let booksData = [...filteredBooks];
+
+    booksData.push(newCourseBook);
+    setBooks(booksData);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="main-container" role="main">
+      <h1 className="title">Search Books</h1>
+      <SearchBox addBook={addBook} titles={localData.titles} />
+      <CourseList books={filteredBooks} />
+    </section>
   );
-}
+};
 
 export default App;

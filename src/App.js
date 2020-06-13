@@ -26,7 +26,7 @@ const App = () => {
   return (
     <section className="main-container" role="main">
       <h1 className="title">Search Books</h1>
-      <SearchBox addBook={addBook} titles={CourseBooks.getTitles()} />
+      <SearchBox addBook={addBook} titles={CourseBooks.getAllTitles()} />
       <CourseList books={filteredBooks} />
     </section>
   );

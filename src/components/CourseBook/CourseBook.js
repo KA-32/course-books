@@ -5,9 +5,11 @@ import avatarIcon from "../../assets/ic-avatar.png";
 
 import "./CourseBook.css";
 
-const CourseBook = (props) => {
-  const { title, author, description } = props;
-
+/**
+ * @param {title, author, description}
+ * Show selected Course Book.
+ */
+const CourseBook = ({ title, author, description }) => {
   return (
     <li className="book-item">
       <h2 className="title">{title}</h2>

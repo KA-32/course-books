@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import AutoSuggestion from "../AutoSuggestion/AutoSuggestion";
+import CourseBooks from "../../utils/coursebooks";
 
 import "./SearchBox.css";
 
@@ -18,8 +19,9 @@ const SearchBox = (props) => {
   };
 
   const handleTextChange = (value) => {
-    let filterTitles = props.titles.filter((title, index) => {
-      return title.indexOf(value) > -1;
+    //Throttle the call.
+    let filterTitles = CourseBooks.search(value).map((value) => {
+      return value.title;
     });
     setSearchQuery(value);
     setSuggestionsVisibility(true);
@@ -41,8 +43,11 @@ const SearchBox = (props) => {
           aria-required="true"
           aria-label="Search box"
           name="book-search"
-          placeholder="Enter book name"
+          placeholder="Enter summary of book"
           className="search-input"
+          aria-owns="autoSuggestions"
+          aria-autocomplete="both"
+          aria-activedescendant=""
           value={searchQuery}
           onChange={(e) => {
             handleTextChange(e.target.value);

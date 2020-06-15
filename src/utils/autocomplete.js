@@ -94,19 +94,19 @@ class AutocompleteUtil {
           //Handle space in the match.
           currentPrefix = currentPrefix + " ";
         } else if (i === 27) {
-          //Handle space in the match.
+          //Handle . in the match.
           currentPrefix = currentPrefix + ".";
         } else if (i === 28) {
-          //Handle space in the match.
+          //Handle , in the match.
           currentPrefix = currentPrefix + ",";
         } else if (i === 29) {
-          //Handle space in the match.
+          //Handle ( in the match.
           currentPrefix = currentPrefix + "(";
         } else if (i === 30) {
-          //Handle space in the match.
+          //Handle ) in the match.
           currentPrefix = currentPrefix + ")";
         } else if (i === 31) {
-          //Handle space in the match.
+          //Handle ' in the match.
           currentPrefix = currentPrefix + "'";
         } else {
           currentPrefix = currentPrefix + String.fromCharCode(97 + i);

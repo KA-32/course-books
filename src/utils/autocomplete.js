@@ -12,16 +12,24 @@ function CHAR_TO_INDEX(char) {
     return 26;
   }
 
+  if (char === ".") {
+    return 27;
+  }
+
+  if (char === ",") {
+    return 28;
+  }
+
   return char.charCodeAt() - "a".charCodeAt();
 }
 
 /**
- * Autocomplete utility using Trie DS.
+ * AutocompleteUtil utility using Trie DS.
  */
 
-class Autocomplete {
+class AutocompleteUtil {
   constructor() {
-    this.NUM_OF_ALPHABETS = 27;
+    this.NUM_OF_ALPHABETS = 29;
     this.suggestions = [];
   }
 
@@ -73,6 +81,12 @@ class Autocomplete {
         if (i === 26) {
           //Handle space in the match.
           currentPrefix = currentPrefix + " ";
+        } else if (i === 27) {
+          //Handle space in the match.
+          currentPrefix = currentPrefix + ".";
+        } else if (i === 28) {
+          //Handle space in the match.
+          currentPrefix = currentPrefix + ",";
         } else {
           currentPrefix = currentPrefix + String.fromCharCode(97 + i);
         }
@@ -130,4 +144,8 @@ class Autocomplete {
   }
 }
 
-export default new Autocomplete();
+export const getRootNode = () => {
+  return new CharNode();
+};
+
+export const Autocomplete = new AutocompleteUtil();

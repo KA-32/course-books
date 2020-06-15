@@ -20,6 +20,18 @@ function CHAR_TO_INDEX(char) {
     return 28;
   }
 
+  if (char === "(") {
+    return 29;
+  }
+
+  if (char === ")") {
+    return 30;
+  }
+
+  if (char === "'") {
+    return 31;
+  }
+
   return char.charCodeAt() - "a".charCodeAt();
 }
 
@@ -29,7 +41,7 @@ function CHAR_TO_INDEX(char) {
 
 class AutocompleteUtil {
   constructor() {
-    this.NUM_OF_ALPHABETS = 29;
+    this.NUM_OF_ALPHABETS = 32;
     this.suggestions = [];
   }
 
@@ -87,6 +99,15 @@ class AutocompleteUtil {
         } else if (i === 28) {
           //Handle space in the match.
           currentPrefix = currentPrefix + ",";
+        } else if (i === 29) {
+          //Handle space in the match.
+          currentPrefix = currentPrefix + "(";
+        } else if (i === 30) {
+          //Handle space in the match.
+          currentPrefix = currentPrefix + ")";
+        } else if (i === 31) {
+          //Handle space in the match.
+          currentPrefix = currentPrefix + "'";
         } else {
           currentPrefix = currentPrefix + String.fromCharCode(97 + i);
         }

@@ -56,8 +56,8 @@ class CourseBooks {
 
   //TODO:Throttlling would be better to reduce number of calls between each char change.
   search(query) {
-    Autocomplete.getSuggestions(this.rootNode, query);
-
+    Autocomplete.getSuggestions(this.rootNode, query.toLowerCase());
+    console.log(Autocomplete.getList());
     let filteredCourseBooks = [];
     this.courseBooks.forEach((value) => {
       let found = false;

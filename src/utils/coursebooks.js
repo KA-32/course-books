@@ -67,43 +67,10 @@ class CourseBooks {
         }
       });
 
-      if(found){
+      if (found) {
         filteredCourseBooks.push(value);
       }
     });
-    // this.courseBooks = this._resetRelevance();
-    // this.courseBooks.forEach((value) => {
-    //   let queryWords = query.split(" ");
-    //   queryWords.forEach((word) => {
-    //     if (value.summary.indexOf(word) > -1) {
-    //       value.relevance++;
-    //     }
-    //   });
-
-    //   //If entire query exactly matches.
-    //   if (value.summary.indexOf(query) > -1) {
-    //     value.relevance += 5;
-    //   }
-
-    //   if (value.summary.indexOf(query.toString().toLowerCase()) > -1) {
-    //     value.relevance += 0.25;
-    //   }
-    // });
-
-    // //Rule 1, If entire query matches exactly then will have high score of 5.
-    // //Rule 2, If any word in the query matches exactly then will have score of 2
-    // //Rule 3, If any word matches query after case conversion then will have score of 1
-    // //Rule 4, If the word in the query occurs most of the time then it has more weight.
-
-    // //Sort Summaries based on relevance.
-    // //From high relevance to low.
-    // this.courseBooks.sort((a, b) => {
-    //   if (a.relevance >= b.relevance) {
-    //     return -1;
-    //   }
-    //   return 1;
-    // });
-    // console.timeEnd();
 
     console.log("Books", filteredCourseBooks);
     return filteredCourseBooks;

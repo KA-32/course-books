@@ -27,3 +27,9 @@
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+
+@media screen and (max-width:767.98px){
+  .auto-suggestions{
+    width: 13.3rem;
+  }
+}

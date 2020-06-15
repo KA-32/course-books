@@ -8,6 +8,10 @@
   width: 28%;
 }
 
+.book-item:last-child{
+  margin-right: 0;
+}
+
 .book-item .title {
   margin: 0 0 1em 0;
 }
@@ -26,4 +30,11 @@
   margin: 0 0 1em 0;
   max-height: 146px;
   overflow-y: scroll;
+}
+
+@media screen and (max-width:767.98px){
+  .book-item{
+    width: 100%;
+    margin-right: 0;
+  }
 }

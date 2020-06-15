@@ -37,3 +37,9 @@ input[type="text"] {
   background-color: gray;
   cursor: initial;
 }
+
+@media screen and (max-width:767.98px){
+  .form-search .search-input{
+    width: 12rem;
+  }
+}

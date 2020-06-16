@@ -13,21 +13,15 @@ const Autocomplete = (props) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   // What the user has entered
   const [userInput, setUserInput] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
   const [isSearchQuerySelected, setSearchQuerySelctionState] = useState(false);
-  const [isSuggestionsVisible, setSuggestionsVisibility] = useState(true);
 
   const handleSubmit = (e) => {
     props.addBook(userInput);
-    setSearchQuery("");
     setSearchQuerySelctionState(false);
     setUserInput("");
   };
 
   const onSelected = (value) => {
-    setSearchQuery(value);
-    setSuggestionsVisibility(false);
     setSearchQuerySelctionState(true);
   };
 
@@ -37,11 +31,8 @@ const Autocomplete = (props) => {
     const filteredSuggestions = CourseBooks.search(userInput).map((value) => {
       return value.title;
     });
-    setSearchQuery(userInput);
-    setSuggestionsVisibility(true);
-    setSuggestions(filteredSuggestions);
+    
     setSearchQuerySelctionState(false);
-
     setActiveSuggestion(0);
     setFilteredSuggestions(filteredSuggestions);
     setShowSuggestions(true);

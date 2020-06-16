@@ -6,7 +6,7 @@
 import React, { useState } from "react";
 
 import CourseList from "./components/CourseList/CourseList";
-import Autocomplete from "./components/AutoSuggestion/Autocomplete";
+import Autocomplete from "./components/Autocomplete/Autocomplete";
 
 import CourseBooks from "./utils/coursebooks";
 

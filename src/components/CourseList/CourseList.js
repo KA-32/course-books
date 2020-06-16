@@ -9,7 +9,7 @@ const CourseList = ({ books }) => {
   return (
     <ul className="books-list">
       {books.map((value, index) => {
-        return <CourseBook key={index} {...value} />;
+        return <CourseBook key={index} index={index} {...value} />;
       })}
     </ul>
   );

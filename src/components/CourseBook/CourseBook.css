@@ -3,12 +3,17 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 1em;
-  margin-right: 1em;
+  margin-right: 0;
   padding: 1.5em 1em;
-  width: 28%;
+  flex-basis: 100%;
+  flex: 1;
 }
 
-.book-item:last-child{
+.book-item.margin {
+  margin-right: 1em;
+}
+
+.book-item:last-child {
   margin-right: 0;
 }
 
@@ -32,8 +37,12 @@
   overflow-y: scroll;
 }
 
-@media screen and (max-width:767.98px){
-  .book-item{
+.break {
+  flex: 1 1 100%;
+}
+
+@media screen and (max-width: 767.98px) {
+  .book-item {
     width: 100%;
     margin-right: 0;
   }

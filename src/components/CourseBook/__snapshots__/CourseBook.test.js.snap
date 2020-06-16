@@ -6,14 +6,18 @@ Object {
   "baseElement": <body>
     <div>
       <li
-        class="book-item"
+        class="book-item margin"
       >
         <h2
           class="title"
         />
-        <p
-          class="description"
-        />
+        <div
+          class="description-wrapper"
+        >
+          <p
+            class="description"
+          />
+        </div>
         <div
           class="avatar-wrapper"
         >
@@ -22,7 +26,7 @@ Object {
             class="author-image"
             src="ic-avatar.png"
           />
-          <span
+          <p
             class="author-name"
           />
         </div>
@@ -31,14 +35,18 @@ Object {
   </body>,
   "container": <div>
     <li
-      class="book-item"
+      class="book-item margin"
     >
       <h2
         class="title"
       />
-      <p
-        class="description"
-      />
+      <div
+        class="description-wrapper"
+      >
+        <p
+          class="description"
+        />
+      </div>
       <div
         class="avatar-wrapper"
       >
@@ -47,7 +55,7 @@ Object {
           class="author-image"
           src="ic-avatar.png"
         />
-        <span
+        <p
           class="author-name"
         />
       </div>

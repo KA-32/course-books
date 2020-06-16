@@ -19,10 +19,7 @@ Object {
         >
           <div>
             <input
-              aria-activedescendant=""
-              aria-autocomplete="both"
               aria-label="Search box"
-              aria-owns="autoSuggestions"
               aria-required="true"
               class="search-input"
               name="book-search"
@@ -59,10 +56,7 @@ Object {
       >
         <div>
           <input
-            aria-activedescendant=""
-            aria-autocomplete="both"
             aria-label="Search box"
-            aria-owns="autoSuggestions"
             aria-required="true"
             class="search-input"
             name="book-search"

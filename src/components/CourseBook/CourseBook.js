@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 
 import avatarIcon from "../../assets/ic-avatar.png";
@@ -6,13 +6,12 @@ import avatarIcon from "../../assets/ic-avatar.png";
 import "./CourseBook.css";
 
 /**
- * @param {title, author, description}
+ * @param {index, title, author, description}
  * Show selected Course Book.
  */
 const CourseBook = ({ index, title, author, description }) => {
   const [isReadMore, setReadMoreStatus] = useState(false);
 
-  useEffect(() => {}, []);
   const handleReadMoreClick = (e) => {
     setReadMoreStatus(!isReadMore);
   };

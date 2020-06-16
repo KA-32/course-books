@@ -106,9 +106,6 @@ const Autocomplete = (props) => {
           name="book-search"
           placeholder="Enter summary of book"
           className="search-input"
-          aria-owns="autoSuggestions"
-          aria-autocomplete="both"
-          aria-activedescendant=""
           value={userInput}
           onChange={handleInputChange}
           onKeyDown={handleKeyDownpress}

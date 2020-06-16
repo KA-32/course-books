@@ -55,14 +55,12 @@ const Autocomplete = (props) => {
       if (activeSuggestion === 0) {
         return;
       }
-
       setActiveSuggestion(activeSuggestion - 1);
     } else if (e.keyCode === 40) {
       // User pressed the down arrow
       if (activeSuggestion - 1 === filteredSuggestions.length) {
         return;
       }
-
       setActiveSuggestion(activeSuggestion + 1);
     }
   };
@@ -73,7 +71,6 @@ const Autocomplete = (props) => {
         {filteredSuggestions.length > 0 &&
           filteredSuggestions.map((suggestion, index) => {
             let className;
-
             // Flag the active suggestion with a class
             if (index === activeSuggestion) {
               className = "auto-suggestion-item suggestion-active";
@@ -88,7 +85,7 @@ const Autocomplete = (props) => {
             );
           })}
         {filteredSuggestions.length === 0 && (
-          <li className="auto-suggestion-item" key="no-suggestion">
+          <li className="auto-suggestion-item no-suggestion" key="no-suggestion">
             No suggestions found
           </li>
         )}

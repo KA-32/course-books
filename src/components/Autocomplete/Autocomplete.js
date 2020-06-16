@@ -76,9 +76,9 @@ const Autocomplete = (props) => {
 
             // Flag the active suggestion with a class
             if (index === activeSuggestion) {
-              className = "auto-suggestion-val suggestion-active";
+              className = "auto-suggestion-item suggestion-active";
             } else {
-              className = "auto-suggestion-val";
+              className = "auto-suggestion-item";
             }
 
             return (
@@ -88,7 +88,7 @@ const Autocomplete = (props) => {
             );
           })}
         {filteredSuggestions.length === 0 && (
-          <li className="auto-suggestion-val" key="no-suggestion">
+          <li className="auto-suggestion-item" key="no-suggestion">
             No suggestions found
           </li>
         )}

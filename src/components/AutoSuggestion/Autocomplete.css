@@ -1,0 +1,106 @@
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type="text"] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+.form-search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4em;
+  position: relative;
+  width: 100%;
+}
+
+.form-search .search-input {
+  font-size: 1rem;
+  outline: none;
+  padding: 10px;
+  width: 15rem;
+}
+
+.form-search .form-submit-btn {
+  border: none;
+  padding: 0.95em 2em;
+  cursor: pointer;
+  background-color: DodgerBlue;
+  color: #fff;
+}
+
+.form-search .form-submit-btn:disabled {
+  background-color: gray;
+  cursor: initial;
+}
+
+.no-suggestions {
+  color: #999;
+  padding: 0.5rem;
+}
+
+.auto-suggestions {
+  border: 1px solid #999;
+  border-top-width: 0;
+  list-style: none;
+  margin-top: 0;
+  max-height: 143px;
+  overflow-y: auto;
+  padding-left: 0;
+  width: calc(300px + 1rem);
+}
+
+.auto-suggestions li {
+  padding: 0.5rem;
+}
+
+.auto-suggestions .suggestion-active{
+  background-color: #00BCD4;
+  color: #000;
+  cursor: pointer;
+}
+.auto-suggestions li:hover {
+  cursor: pointer;
+}
+
+
+
+.auto-suggestions {
+  border: 1px solid #d4d4d4;
+  border-top: none;
+  list-style-type: none;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: scroll;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  width: 16.2rem;
+  z-index: 99;
+}
+
+.auto-suggestions li {
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.auto-suggestions li:hover {
+  background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 767.98px) {
+  .form-search .search-input {
+    width: 12rem;
+  }
+}

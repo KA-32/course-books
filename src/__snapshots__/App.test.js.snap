@@ -17,7 +17,7 @@ Object {
         <div
           class="form-search"
         >
-          <form>
+          <div>
             <input
               aria-activedescendant=""
               aria-autocomplete="both"
@@ -30,14 +30,13 @@ Object {
               type="text"
               value=""
             />
-            
             <button
               class="form-submit-btn"
               disabled=""
             >
               Submit
             </button>
-          </form>
+          </div>
         </div>
         <ul
           class="books-list"
@@ -58,7 +57,7 @@ Object {
       <div
         class="form-search"
       >
-        <form>
+        <div>
           <input
             aria-activedescendant=""
             aria-autocomplete="both"
@@ -71,14 +70,13 @@ Object {
             type="text"
             value=""
           />
-          
           <button
             class="form-submit-btn"
             disabled=""
           >
             Submit
           </button>
-        </form>
+        </div>
       </div>
       <ul
         class="books-list"

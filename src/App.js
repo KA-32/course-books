@@ -7,6 +7,8 @@ import React, { useState } from "react";
 
 import SearchBox from "./components/SearchBox/SearchBox";
 import CourseList from "./components/CourseList/CourseList";
+import Autocomplete from "./components/AutoSuggestion/Autocomplete";
+
 
 import CourseBooks from "./utils/coursebooks";
 
@@ -25,7 +27,8 @@ const App = () => {
   return (
     <section className="main-container" role="main">
       <h1 className="title">Search Books</h1>
-      <SearchBox addBook={addBook} titles={CourseBooks.getAllTitles()} />
+      {/* <SearchBox addBook={addBook} titles={CourseBooks.getAllTitles()} /> */}
+      <Autocomplete addBook={addBook}/>
       <CourseList books={filteredBooks} />
     </section>
   );

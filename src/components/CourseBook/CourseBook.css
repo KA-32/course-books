@@ -19,6 +19,7 @@
 
 .book-item .title {
   margin: 0 0 1em 0;
+  color: dodgerblue;
 }
 
 .book-item .avatar-wrapper .author-image {
@@ -29,12 +30,14 @@
 
 .book-item .author-name {
   vertical-align: middle;
+  color: #607d8b;
 }
 
 .book-item .description {
   margin: 0 0 1em 0;
   max-height: 146px;
   overflow-y: scroll;
+  color: #06223e;
 }
 
 .break {

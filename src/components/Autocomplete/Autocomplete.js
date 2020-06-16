@@ -21,17 +21,13 @@ const Autocomplete = (props) => {
     setUserInput("");
   };
 
-  const onSelected = (value) => {
-    setSearchQuerySelctionState(true);
-  };
-
-  const onChange = (e) => {
+  const handleInputChange = (e) => {
     const userInput = e.currentTarget.value;
 
     const filteredSuggestions = CourseBooks.search(userInput).map((value) => {
       return value.title;
     });
-    
+
     setSearchQuerySelctionState(false);
     setActiveSuggestion(0);
     setFilteredSuggestions(filteredSuggestions);
@@ -39,32 +35,30 @@ const Autocomplete = (props) => {
     setUserInput(e.currentTarget.value);
   };
 
-  const onClick = (e) => {
-    onSelected(e.target.getAttribute("data-value"));
+  const handleItemClick = (e) => {
     setActiveSuggestion(0);
     setFilteredSuggestions([]);
     setShowSuggestions(false);
     setUserInput(e.currentTarget.innerText);
+    setSearchQuerySelctionState(true);
   };
 
-  const onKeyDown = (e) => {
+  const handleKeyDownpress = (e) => {
     // User pressed the enter key
     if (e.keyCode === 13) {
       setActiveSuggestion(0);
       setShowSuggestions(false);
       setUserInput(filteredSuggestions[activeSuggestion]);
-      onSelected();
-    }
-    // User pressed the up arrow
-    else if (e.keyCode === 38) {
+      setSearchQuerySelctionState(true);
+    } else if (e.keyCode === 38) {
+      // User pressed the up arrow
       if (activeSuggestion === 0) {
         return;
       }
 
       setActiveSuggestion(activeSuggestion - 1);
-    }
-    // User pressed the down arrow
-    else if (e.keyCode === 40) {
+    } else if (e.keyCode === 40) {
+      // User pressed the down arrow
       if (activeSuggestion - 1 === filteredSuggestions.length) {
         return;
       }
@@ -88,7 +82,7 @@ const Autocomplete = (props) => {
             }
 
             return (
-              <li className={className} key={suggestion} onClick={onClick}>
+              <li className={className} key={suggestion} onClick={handleItemClick}>
                 {suggestion}
               </li>
             );
@@ -116,8 +110,8 @@ const Autocomplete = (props) => {
           aria-autocomplete="both"
           aria-activedescendant=""
           value={userInput}
-          onChange={onChange}
-          onKeyDown={onKeyDown}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDownpress}
         />
         {showSuggestions && userInput && (
           <Fragment>{suggestionsListComponent()}</Fragment>

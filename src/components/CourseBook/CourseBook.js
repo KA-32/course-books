@@ -51,12 +51,14 @@ CourseBook.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 CourseBook.defaultProps = {
   title: "",
   author: "",
   description: "",
+  index: 0,
 };
 
 export default CourseBook;

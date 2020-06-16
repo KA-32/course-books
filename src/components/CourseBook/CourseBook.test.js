@@ -15,6 +15,7 @@ describe("Course Book", () => {
         title="New Title"
         author="Test Author"
         description="Some description"
+        index={0}
       />
     );
     const titleElement = getByText(/New Title/i);

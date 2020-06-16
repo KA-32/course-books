@@ -45,11 +45,20 @@ class AutocompleteUtil {
     this.suggestions = [];
   }
 
-  getNode() {
+  /**
+   * @private
+   */
+  _getNode() {
     let node = new CharNode();
     return node;
   }
 
+  /**
+   * insert the given key into trie.
+   * @param {*} rootNode
+   * @param {*} key
+   * @public
+   */
   insert(rootNode, key) {
     let tempNode = rootNode;
 
@@ -57,17 +66,22 @@ class AutocompleteUtil {
       let index = CHAR_TO_INDEX(key[level]);
 
       if (!tempNode.children[index]) {
-        tempNode.children[index] = this.getNode();
+        tempNode.children[index] = this._getNode();
       }
 
       tempNode = tempNode.children[index];
     }
 
-    // mark last node as leaf
+    // mark last node as the end of word.
     tempNode.isWordEnd = true;
   }
 
-  isLastNode(rootNode) {
+  /**
+   * Check if given node is last node.
+   * @param {*} rootNode
+   * @private
+   */
+  _isLastNode(rootNode) {
     for (let i = 0; i < this.NUM_OF_ALPHABETS; i++) {
       if (rootNode.children[i]) {
         return false;
@@ -77,14 +91,20 @@ class AutocompleteUtil {
     return true;
   }
 
-  storeSuggestions(rootNode, currentPrefix) {
-    // found a string in Trie with the given prefix
+  /**
+   * Store suggestions.
+   * @param {*} rootNode
+   * @param {*} currentPrefix
+   * @private
+   */
+  _storeSuggestions(rootNode, currentPrefix) {
+    // found a string with the given prefix
     if (rootNode.isWordEnd) {
       this.suggestions.push(currentPrefix);
     }
 
     // All children node pointers are null
-    if (this.isLastNode(rootNode)) {
+    if (this._isLastNode(rootNode)) {
       return;
     }
 
@@ -111,24 +131,28 @@ class AutocompleteUtil {
         } else {
           currentPrefix = currentPrefix + String.fromCharCode(97 + i);
         }
-        // recur over the rest
-        this.storeSuggestions(rootNode.children[i], currentPrefix);
+
+        this._storeSuggestions(rootNode.children[i], currentPrefix);
         // remove last character
         currentPrefix = currentPrefix.substring(0, currentPrefix.length - 1);
       }
     }
   }
 
+  /**
+   * Get suggestions for given query string.
+   * @param {*} rootNode
+   * @param {*} query
+   * @public
+   */
   getSuggestions(rootNode, query) {
     let tempNode = rootNode;
     this.suggestions = [];
 
-    // Check if prefix is present and find the
-    // the node (of last level) with last character
-    // of given string.
-
-    for (let level = 0; level < query.length; level++) {
-      let index = CHAR_TO_INDEX(query[level]);
+    // Check if prefix is present and find the node with last character of given string.
+    //For each level.
+    for (let i = 0; i < query.length; i++) {
+      let index = CHAR_TO_INDEX(query[i]);
       // no string in the Trie has this prefix
       if (!tempNode.children[index]) {
         return 0;
@@ -141,7 +165,7 @@ class AutocompleteUtil {
     let isWord = tempNode.isWordEnd === true;
     // If prefix is last node of tree (has no
     // children)
-    let isLast = this.isLastNode(tempNode);
+    let isLast = this._isLastNode(tempNode);
 
     // If prefix is present as a word, but
     // there is no subtree below the last
@@ -155,11 +179,15 @@ class AutocompleteUtil {
     // matching character.
     if (!isLast) {
       let prefix = query;
-      this.storeSuggestions(tempNode, prefix);
+      this._storeSuggestions(tempNode, prefix);
       return 1;
     }
   }
 
+  /**
+   * Returns the suggestions list.
+   * @public
+   */
   getList() {
     return this.suggestions;
   }

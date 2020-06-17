@@ -112,17 +112,7 @@ const Autocomplete = (props) => {
           onChange={handleInputChange}
           onKeyDown={handleKeyDownpress}
         />
-        <input
-          type="number"
-          aria-required="true"
-          aria-label="Search box"
-          name="book-search"
-          placeholder="Number of Results to show"
-          className="relevance-input"
-          min={3}
-          value={numResults}
-          onChange={handleRelevanceInputChange}
-        />
+        
         {showSuggestions && userInput && (
           <Fragment>{suggestionsListComponent()}</Fragment>
         )}
@@ -135,6 +125,20 @@ const Autocomplete = (props) => {
         >
           Submit
         </button>
+        <div className="show-results-count">
+          <span>Showing Results:</span>
+          <input
+          type="number"
+          aria-required="true"
+          aria-label="Search box"
+          name="book-search"
+          placeholder="Number of Results to show"
+          className="relevance-input"
+          min={3}
+          value={numResults}
+          onChange={handleRelevanceInputChange}
+        />
+        </div>
       </div>
     </div>
   );

@@ -24,19 +24,26 @@ input[type="text"] {
   width: 15rem;
 }
 
+.form-search .show-results-count{
+  margin-top: 1em;
+}
 .form-search .relevance-input{
   font-size: 1rem;
-  outline: none;
-  padding: 10px;
-  width: 2rem;
+    outline: none;
+    padding: 0;
+    width: 2rem;
+    border-bottom: 1px solid #bfb8b8;
+    text-align: center;
+    background-color: transparent;
 }
 
 .form-search .form-submit-btn {
   border: none;
-  padding: 0.95em 2em;
-  cursor: pointer;
   background-color: DodgerBlue;
   color: #fff;
+  cursor: pointer;
+  padding: 0.95em 2em;
+  vertical-align: top;
 }
 
 .form-search .form-submit-btn:disabled {
@@ -58,7 +65,7 @@ input[type="text"] {
   overflow-y: scroll;
   padding: 0;
   position: absolute;
-  top: 100%;
+  top: 53%;
   width: 16.2rem;
   z-index: 99;
 }

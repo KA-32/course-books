@@ -1,8 +1,9 @@
 input {
   background-color: #e0e0e0;
   border: 1px solid transparent;
-  padding: 10px;
-  font-size: 16px;
+  padding: 0.64em;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
 }
 
 input[type="text"] {
@@ -18,23 +19,21 @@ input[type="text"] {
 }
 
 .form-search .search-input {
-  font-size: 1rem;
   outline: none;
-  padding: 10px;
   width: 15rem;
 }
 
-.form-search .show-results-count{
+.form-search .show-results-count {
   margin-top: 1em;
 }
-.form-search .relevance-input{
-  font-size: 1rem;
-    outline: none;
-    padding: 0;
-    width: 2rem;
-    border-bottom: 1px solid #bfb8b8;
-    text-align: center;
-    background-color: transparent;
+
+.form-search .relevance-input {
+  outline: none;
+  padding: 0;
+  width: 2rem;
+  border-bottom: 1px solid #bfb8b8;
+  text-align: center;
+  background-color: transparent;
 }
 
 .form-search .form-submit-btn {

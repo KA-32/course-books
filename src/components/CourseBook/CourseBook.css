@@ -2,11 +2,11 @@
   background-color: #f1f1f1;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  flex-basis: 100%;
+  flex: 1;
   margin-bottom: 1em;
   margin-right: 0;
   padding: 1.5em 1em;
-  flex-basis: 100%;
-  flex: 1;
 }
 
 .book-item.margin {
@@ -18,21 +18,23 @@
 }
 
 .book-item .title {
-  margin: 0 0 1em 0;
   color: dodgerblue;
+  margin: 0 0 1em 0;
 }
 
 .book-item .avatar-wrapper .author-image {
   display: inline-block;
   margin-right: 1em;
   vertical-align: middle;
+  width: 2rem;
 }
 
 .book-item .author-name {
-  vertical-align: middle;
   color: #607d8b;
-  text-align: left;
   display: inline-block;
+  margin: 0;
+  text-align: left;
+  vertical-align: middle;
   width: 77%;
 }
 
@@ -41,19 +43,19 @@
 }
 
 .book-item .description {
+  color: #06223e;
+  display: inline;
   margin: 0 0 1em 0;
   max-height: 146px;
   overflow-y: hidden;
-  color: #06223e;
-  display: inline;
 }
 
 .book-item .read-more {
-  display: inline-block;
   border: none;
-  text-decoration: underline;
   color: dodgerblue;
   cursor: pointer;
+  display: inline-block;
+  text-decoration: underline;
 }
 
 .break {
@@ -62,9 +64,9 @@
 
 @media screen and (max-width: 767.98px) {
   .book-item {
-    width: 100%;
-    margin-right: 0;
     flex: auto;
+    margin-right: 0;
+    width: 100%;
   }
 
   .book-item.margin {

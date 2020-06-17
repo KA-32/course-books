@@ -40,11 +40,11 @@ Object {
                 Showing Results:
               </span>
               <input
-                aria-label="Search box"
+                aria-label="Number of Results"
                 aria-required="true"
                 class="relevance-input"
                 min="3"
-                name="book-search"
+                name="results-count"
                 placeholder="Number of Results to show"
                 type="number"
                 value="3"
@@ -94,11 +94,11 @@ Object {
               Showing Results:
             </span>
             <input
-              aria-label="Search box"
+              aria-label="Number of Results"
               aria-required="true"
               class="relevance-input"
               min="3"
-              name="book-search"
+              name="results-count"
               placeholder="Number of Results to show"
               type="number"
               value="3"

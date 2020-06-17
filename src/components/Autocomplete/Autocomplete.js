@@ -110,7 +110,7 @@ const Autocomplete = (props) => {
 
   return (
     <section className="form-search">
-      <form>
+      <form onSubmit={(e)=>e.preventDefault()}>
         <input
           type="text"
           aria-required="true"
@@ -140,8 +140,8 @@ const Autocomplete = (props) => {
           <input
             type="number"
             aria-required="true"
-            aria-label="Search box"
-            name="book-search"
+            aria-label="Number of Results"
+            name="results-count"
             placeholder="Number of Results to show"
             className="relevance-input"
             min={3}

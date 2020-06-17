@@ -38,6 +38,37 @@ function CHAR_TO_INDEX(char) {
     return 32;
   }
 
+  if (parseInt(char) === 0) {
+    return 33;
+  }
+  if (parseInt(char) === 1) {
+    return 34;
+  }
+  if (parseInt(char) === 2) {
+    return 35;
+  }
+  if (parseInt(char) === 3) {
+    return 36;
+  }
+  if (parseInt(char) === 4) {
+    return 37;
+  }
+  if (parseInt(char) === 5) {
+    return 38;
+  }
+  if (parseInt(char) === 6) {
+    return 39;
+  }
+  if (parseInt(char) === 7) {
+    return 40;
+  }
+  if (parseInt(char) === 8) {
+    return 41;
+  }
+  if (parseInt(char) === 9) {
+    return 42;
+  }
+
   return char.charCodeAt() - "a".charCodeAt();
 }
 
@@ -47,7 +78,7 @@ function CHAR_TO_INDEX(char) {
 
 class AutocompleteUtil {
   constructor() {
-    this.NUM_OF_ALPHABETS = 33;
+    this.NUM_OF_ALPHABETS = 43;
     this.suggestions = [];
   }
 
@@ -158,6 +189,36 @@ class AutocompleteUtil {
         } else if (i === 32) {
           //Handle " in the match.
           currentPrefix = currentPrefix + '"';
+        }else if (i === 33) {
+          //Handle 0 in the match.
+          currentPrefix = currentPrefix + 0;
+        }else if (i === 34) {
+          //Handle 1 in the match.
+          currentPrefix = currentPrefix + 1;
+        }else if (i === 35) {
+          //Handle 2 in the match.
+          currentPrefix = currentPrefix + 2;
+        }else if (i === 36) {
+          //Handle 3 in the match.
+          currentPrefix = currentPrefix + 3;
+        }else if (i === 37) {
+          //Handle 4 in the match.
+          currentPrefix = currentPrefix + 4;
+        }else if (i === 38) {
+          //Handle 5 in the match.
+          currentPrefix = currentPrefix + 5;
+        }else if (i === 39) {
+          //Handle 6 in the match.
+          currentPrefix = currentPrefix + 6;
+        }else if (i === 40) {
+          //Handle 7 in the match.
+          currentPrefix = currentPrefix + 7;
+        }else if (i === 41) {
+          //Handle 8 in the match.
+          currentPrefix = currentPrefix + 8;
+        } else if (i === 42) {
+          //Handle 9 in the match.
+          currentPrefix = currentPrefix + 9;
         } else {
           currentPrefix = currentPrefix + String.fromCharCode(97 + i);
         }

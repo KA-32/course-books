@@ -4,6 +4,8 @@
 function CharNode() {
   this.children = [];
   this.isWordEnd = false;
+  this.hits = 0;
+  this.prevSummaryInserted = "";
 }
 
 function CHAR_TO_INDEX(char) {
@@ -100,7 +102,28 @@ class AutocompleteUtil {
   _storeSuggestions(rootNode, currentPrefix) {
     // found a string with the given prefix
     if (rootNode.isWordEnd) {
-      this.suggestions.push(currentPrefix);
+      rootNode.hits++;
+      if (rootNode.prevSummaryInserted !== currentPrefix) {
+        let summary = {};
+        summary.summary = currentPrefix;
+        summary.hits = rootNode.hits;
+        this.suggestions.push(summary);
+        rootNode.prevSummaryInserted = currentPrefix;
+      } else {
+        for (let i = 0; i < this.suggestions.length; i++) {
+          if (this.suggestions[i].summary === currentPrefix) {
+            this.suggestions[i].hits++;
+            break;
+          }
+        }
+      }
+
+      this.suggestions.sort((a, b) => {
+        if (a.hits < b.hits) {
+          return 1;
+        }
+        return -1;
+      });
     }
 
     // All children node pointers are null
@@ -147,7 +170,6 @@ class AutocompleteUtil {
    */
   getSuggestions(rootNode, query) {
     let tempNode = rootNode;
-    this.suggestions = [];
 
     // Check if prefix is present and find the node with last character of given string.
     //For each level.
@@ -188,8 +210,8 @@ class AutocompleteUtil {
    * Returns the suggestions list.
    * @public
    */
-  getList() {
-    return this.suggestions;
+  getList(numOfSuggestions) {
+    return this.suggestions.slice(0, parseInt(numOfSuggestions));
   }
 }
 

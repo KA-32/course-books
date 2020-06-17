@@ -65,8 +65,8 @@ class CourseBooks {
 
     this.courseBooks.forEach((value) => {
       let found = false;
-      Autocomplete.getList().forEach((suggestion) => {
-        if (!found && value.summary.toLowerCase().indexOf(suggestion) > -1) {
+      Autocomplete.getList(numOfResultsToShow).forEach((suggestion) => {
+        if (!found && value.summary.toLowerCase().indexOf(suggestion.summary) > -1) {
           found = true;
         }
       });

@@ -6,7 +6,7 @@ describe("Autocomplete utility class", () => {
   });
 
   test("'getRootNode()' should return a node", () => {
-    expect(getRootNode()).toEqual({ children: [], isWordEnd: false });
+    expect(getRootNode()).toEqual({ children: [], isWordEnd: false, hits:0,prevSummaryInserted:'' });
   });
 
   // test("total 55 titles should be present",()=>{

@@ -6,30 +6,43 @@ describe("Autocomplete utility class", () => {
   });
 
   test("'getRootNode()' should return a node", () => {
-    expect(getRootNode()).toEqual({ children: [], isWordEnd: false, hits:0,prevSummaryInserted:'' });
+    expect(getRootNode()).toEqual({
+      children: [],
+      isWordEnd: false,
+      hits: 0,
+      prevSummaryInserted: "",
+    });
   });
 
-  // test("total 55 titles should be present",()=>{
-  //     expect(CourseBooks.getAllTitles().length).toBe(55);
-  // });
+  test("search suggestions", () => {
+    let rootNode = getRootNode();
+    Autocomplete.insert(rootNode, "hello");
+    Autocomplete.insert(rootNode, "hel");
+    expect(Autocomplete.getSuggestions(rootNode, "")).toBe(1);
+  });
 
-  // test("get titles",()=>{
-  //     expect(CourseBooks.getAllTitles()).toContain('Anything You Want');
-  // });
+  test("no suggestions found for query 'world'", () => {
+    let rootNode = getRootNode();
+    Autocomplete.insert(rootNode, "hello");
+    Autocomplete.insert(rootNode, "hel");
+    expect(Autocomplete.getSuggestions(rootNode, "world")).toBe(0);
+  });
 
-  // test("total 55 summaries should be present",()=>{
-  //     expect(CourseBooks.getSummaries().length).toBe(55);
-  // });
+  test("no suggestions found for query 'world'", () => {
+    let rootNode = getRootNode();
+    Autocomplete.insert(rootNode, "hello world");
+    Autocomplete.insert(rootNode, "hel");
+    expect(Autocomplete.getSuggestions(rootNode, "world")).toBe(0);
+  });
 
-  // test("Should match first summary",()=>{
-  //     // expect(CourseBooks.getSummaries()).toContain('The Book in Three Sentences: Practicing meditation and mindfulness will make you at least 10 percent happier. Being mindful doesn\u2019t change the problems in your life, but mindfulness does help you respond to your problems rather than react to them. Mindfulness helps you realize that striving for success is fine as long as you accept that the outcome is outside your control.');
-  // });
-
-  // test("total 55 authors should be present",()=>{
-  //     expect(CourseBooks.getAuthors().length).toBe(55);
-  // });
-
-  // test("Should have author",()=>{
-  //     // expect(CourseBooks.getAuthors()).toContain('Dan Harris');
-  // });
+  test("suggestions found for query 'hello'", () => {
+    let rootNode = getRootNode();
+    Autocomplete.insert(rootNode, "hello world");
+    Autocomplete.insert(rootNode, "hel");
+    expect(Autocomplete.getSuggestions(rootNode, "hello")).toBe(1);
+    expect(Autocomplete.getList(1).length).toBe(1);
+    expect(Autocomplete.getList(1)).toEqual([
+      { hits: 1, summary: "hello world" },
+    ]);
+  });
 });

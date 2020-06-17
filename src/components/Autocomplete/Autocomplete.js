@@ -14,7 +14,7 @@ const Autocomplete = (props) => {
   // What the user has entered
   const [userInput, setUserInput] = useState("");
   const [isSearchQuerySelected, setSearchQuerySelctionState] = useState(false);
-  const [numResults,setNumResultsToShow] = useState(0);
+  const [numResults,setNumResultsToShow] = useState(3);
 
   const handleSubmit = (e) => {
     props.addBook(userInput);
@@ -117,8 +117,9 @@ const Autocomplete = (props) => {
           aria-required="true"
           aria-label="Search box"
           name="book-search"
-          placeholder="Enter summary of book"
+          placeholder="Number of Results to show"
           className="relevance-input"
+          min={3}
           value={numResults}
           onChange={handleRelevanceInputChange}
         />

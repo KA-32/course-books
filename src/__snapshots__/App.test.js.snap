@@ -31,10 +31,11 @@ Object {
               aria-label="Search box"
               aria-required="true"
               class="relevance-input"
+              min="3"
               name="book-search"
-              placeholder="Enter summary of book"
+              placeholder="Number of Results to show"
               type="number"
-              value="0"
+              value="3"
             />
             <button
               class="form-submit-btn"
@@ -77,10 +78,11 @@ Object {
             aria-label="Search box"
             aria-required="true"
             class="relevance-input"
+            min="3"
             name="book-search"
-            placeholder="Enter summary of book"
+            placeholder="Number of Results to show"
             type="number"
-            value="0"
+            value="3"
           />
           <button
             class="form-submit-btn"

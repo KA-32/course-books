@@ -34,6 +34,10 @@ function CHAR_TO_INDEX(char) {
     return 31;
   }
 
+  if (char === '"') {
+    return 32;
+  }
+
   return char.charCodeAt() - "a".charCodeAt();
 }
 
@@ -43,7 +47,7 @@ function CHAR_TO_INDEX(char) {
 
 class AutocompleteUtil {
   constructor() {
-    this.NUM_OF_ALPHABETS = 32;
+    this.NUM_OF_ALPHABETS = 33;
     this.suggestions = [];
   }
 
@@ -151,6 +155,9 @@ class AutocompleteUtil {
         } else if (i === 31) {
           //Handle ' in the match.
           currentPrefix = currentPrefix + "'";
+        } else if (i === 32) {
+          //Handle " in the match.
+          currentPrefix = currentPrefix + '"';
         } else {
           currentPrefix = currentPrefix + String.fromCharCode(97 + i);
         }

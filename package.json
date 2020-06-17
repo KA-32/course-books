@@ -31,5 +31,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "author": {
+    "name": "Bhimashankar Sutar",
+    "email": "bss8236@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KA-32/course-books"
+  },
+  "readme": "https://github.com/KA-32/course-books/blob/master/README.md",
+  "homepage": "https://github.com/KA-32/course-books/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/KA-32/course-books/issues"
   }
 }

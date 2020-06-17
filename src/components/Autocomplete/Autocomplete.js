@@ -14,7 +14,7 @@ const Autocomplete = (props) => {
   // What the user has entered
   const [userInput, setUserInput] = useState("");
   const [isSearchQuerySelected, setSearchQuerySelctionState] = useState(false);
-  const [numResults,setNumResultsToShow] = useState(3);
+  const [numResults, setNumResultsToShow] = useState(3);
 
   const handleSubmit = (e) => {
     props.addBook(userInput);
@@ -25,9 +25,11 @@ const Autocomplete = (props) => {
   const handleInputChange = (e) => {
     const userInput = e.currentTarget.value;
 
-    const filteredSuggestions = CourseBooks.search(userInput,numResults).map((value) => {
-      return value.title;
-    });
+    const filteredSuggestions = CourseBooks.search(userInput, numResults).map(
+      (value) => {
+        return value.title;
+      }
+    );
 
     setSearchQuerySelctionState(false);
     setActiveSuggestion(0);
@@ -66,9 +68,9 @@ const Autocomplete = (props) => {
     }
   };
 
-  const handleRelevanceInputChange = (e)=>{
+  const handleRelevanceInputChange = (e) => {
     setNumResultsToShow(e.currentTarget.value);
-  }
+  };
 
   const suggestionsListComponent = () => {
     return (
@@ -84,13 +86,20 @@ const Autocomplete = (props) => {
             }
 
             return (
-              <li className={className} key={suggestion} onClick={handleItemClick}>
+              <li
+                className={className}
+                key={suggestion}
+                onClick={handleItemClick}
+              >
                 {suggestion}
               </li>
             );
           })}
         {filteredSuggestions.length === 0 && (
-          <li className="auto-suggestion-item no-suggestion" key="no-suggestion">
+          <li
+            className="auto-suggestion-item no-suggestion"
+            key="no-suggestion"
+          >
             No suggestions found
           </li>
         )}
@@ -112,7 +121,7 @@ const Autocomplete = (props) => {
           onChange={handleInputChange}
           onKeyDown={handleKeyDownpress}
         />
-        
+
         {showSuggestions && userInput && (
           <Fragment>{suggestionsListComponent()}</Fragment>
         )}
@@ -128,16 +137,16 @@ const Autocomplete = (props) => {
         <div className="show-results-count">
           <span>Showing Results:</span>
           <input
-          type="number"
-          aria-required="true"
-          aria-label="Search box"
-          name="book-search"
-          placeholder="Number of Results to show"
-          className="relevance-input"
-          min={3}
-          value={numResults}
-          onChange={handleRelevanceInputChange}
-        />
+            type="number"
+            aria-required="true"
+            aria-label="Search box"
+            name="book-search"
+            placeholder="Number of Results to show"
+            className="relevance-input"
+            min={3}
+            value={numResults}
+            onChange={handleRelevanceInputChange}
+          />
         </div>
       </div>
     </div>

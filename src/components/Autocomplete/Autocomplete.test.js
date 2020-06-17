@@ -35,4 +35,20 @@ describe("Autocomplete component", () => {
     expect(inputElement.getAttribute("value")).toBe("");
     expect(submitButton.getAttribute("disabled")).toBe("");
   });
+
+  test("relevance input should be present.", () => {
+    const { getByText, getByPlaceholderText } = render(<Autocomplete />);
+    const inputElement = getByPlaceholderText(/Number of Results to show/i);
+    const spanElement = getByText(/Showing Results:/i);
+    expect(inputElement).toBeInTheDocument();
+    expect(spanElement).toBeInTheDocument();
+  });
+
+  test("show minimum 3 results", () => {
+    const {  getByPlaceholderText } = render(<Autocomplete />);
+    const inputElement = getByPlaceholderText(/Number of Results to show/i);
+  
+    expect(parseInt(inputElement.getAttribute('value'))).toEqual(3);
+    expect(parseInt(inputElement.getAttribute('min'))).toEqual(3);
+  });
 });

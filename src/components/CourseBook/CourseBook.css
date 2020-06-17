@@ -53,6 +53,7 @@
   border: none;
   text-decoration: underline;
   color: dodgerblue;
+  cursor: pointer;
 }
 
 .break {

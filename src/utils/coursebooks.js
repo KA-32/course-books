@@ -59,7 +59,7 @@ class CourseBooks {
    * @public
    * @returns array of summaries matched.
    */
-  search(query) {
+  search(query, numOfResultsToShow) {
     Autocomplete.getSuggestions(this.rootNode, query.toLowerCase());
     let filteredCourseBooks = [];
 
@@ -71,7 +71,7 @@ class CourseBooks {
         }
       });
 
-      if (found) {
+      if (found && filteredCourseBooks.length < numOfResultsToShow) {
         filteredCourseBooks.push(value);
       }
     });

@@ -14,6 +14,7 @@ const Autocomplete = (props) => {
   // What the user has entered
   const [userInput, setUserInput] = useState("");
   const [isSearchQuerySelected, setSearchQuerySelctionState] = useState(false);
+  const [numResults,setNumResultsToShow] = useState(0);
 
   const handleSubmit = (e) => {
     props.addBook(userInput);
@@ -24,7 +25,7 @@ const Autocomplete = (props) => {
   const handleInputChange = (e) => {
     const userInput = e.currentTarget.value;
 
-    const filteredSuggestions = CourseBooks.search(userInput).map((value) => {
+    const filteredSuggestions = CourseBooks.search(userInput,numResults).map((value) => {
       return value.title;
     });
 
@@ -64,6 +65,10 @@ const Autocomplete = (props) => {
       setActiveSuggestion(activeSuggestion + 1);
     }
   };
+
+  const handleRelevanceInputChange = (e)=>{
+    setNumResultsToShow(e.currentTarget.value);
+  }
 
   const suggestionsListComponent = () => {
     return (
@@ -106,6 +111,16 @@ const Autocomplete = (props) => {
           value={userInput}
           onChange={handleInputChange}
           onKeyDown={handleKeyDownpress}
+        />
+        <input
+          type="number"
+          aria-required="true"
+          aria-label="Search box"
+          name="book-search"
+          placeholder="Enter summary of book"
+          className="relevance-input"
+          value={numResults}
+          onChange={handleRelevanceInputChange}
         />
         {showSuggestions && userInput && (
           <Fragment>{suggestionsListComponent()}</Fragment>

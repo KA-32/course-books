@@ -1,11 +1,11 @@
 input {
+  background-color: #e0e0e0;
   border: 1px solid transparent;
   padding: 10px;
   font-size: 16px;
 }
 
 input[type="text"] {
-  background-color: #e0e0e0;
   width: 100%;
 }
 
@@ -22,6 +22,13 @@ input[type="text"] {
   outline: none;
   padding: 10px;
   width: 15rem;
+}
+
+.form-search .relevance-input{
+  font-size: 1rem;
+  outline: none;
+  padding: 10px;
+  width: 2rem;
 }
 
 .form-search .form-submit-btn {

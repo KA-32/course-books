@@ -27,6 +27,15 @@ Object {
               type="text"
               value=""
             />
+            <input
+              aria-label="Search box"
+              aria-required="true"
+              class="relevance-input"
+              name="book-search"
+              placeholder="Enter summary of book"
+              type="number"
+              value="0"
+            />
             <button
               class="form-submit-btn"
               disabled=""
@@ -63,6 +72,15 @@ Object {
             placeholder="Enter summary of book"
             type="text"
             value=""
+          />
+          <input
+            aria-label="Search box"
+            aria-required="true"
+            class="relevance-input"
+            name="book-search"
+            placeholder="Enter summary of book"
+            type="number"
+            value="0"
           />
           <button
             class="form-submit-btn"

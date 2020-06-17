@@ -63,18 +63,27 @@ class CourseBooks {
     Autocomplete.getSuggestions(this.rootNode, query.toLowerCase());
     let filteredCourseBooks = [];
 
-    this.courseBooks.forEach((value) => {
+    for (let i = 0; i < this.courseBooks.length; i++) {
       let found = false;
       Autocomplete.getList(numOfResultsToShow).forEach((suggestion) => {
-        if (!found && value.summary.toLowerCase().indexOf(suggestion.summary) > -1) {
+        if (
+          !found &&
+          this.courseBooks[i].summary
+            .toLowerCase()
+            .indexOf(suggestion.summary) > -1
+        ) {
           found = true;
         }
       });
 
-      if (found && filteredCourseBooks.length < numOfResultsToShow) {
-        filteredCourseBooks.push(value);
+      if (found) {
+        filteredCourseBooks.unshift(this.courseBooks[i]);
       }
-    });
+
+      if (filteredCourseBooks.length === numOfResultsToShow) {
+        break;
+      }
+    }
 
     return filteredCourseBooks;
   }

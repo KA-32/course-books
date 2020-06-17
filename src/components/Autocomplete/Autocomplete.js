@@ -49,6 +49,7 @@ const Autocomplete = (props) => {
   const handleKeyDownpress = (e) => {
     // User pressed the enter key
     if (e.keyCode === 13) {
+      e.preventDefault();
       setActiveSuggestion(0);
       setShowSuggestions(false);
       setUserInput(filteredSuggestions[activeSuggestion]);
@@ -108,8 +109,8 @@ const Autocomplete = (props) => {
   };
 
   return (
-    <div className="form-search">
-      <div>
+    <section className="form-search">
+      <form>
         <input
           type="text"
           aria-required="true"
@@ -148,8 +149,8 @@ const Autocomplete = (props) => {
             onChange={handleRelevanceInputChange}
           />
         </div>
-      </div>
-    </div>
+      </form>
+    </section>
   );
 };
 

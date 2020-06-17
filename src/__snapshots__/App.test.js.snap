@@ -14,10 +14,10 @@ Object {
         >
           Search Books
         </h1>
-        <div
+        <section
           class="form-search"
         >
-          <div>
+          <form>
             <input
               aria-label="Search box"
               aria-required="true"
@@ -50,8 +50,8 @@ Object {
                 value="3"
               />
             </div>
-          </div>
-        </div>
+          </form>
+        </section>
         <ul
           class="books-list"
         />
@@ -68,10 +68,10 @@ Object {
       >
         Search Books
       </h1>
-      <div
+      <section
         class="form-search"
       >
-        <div>
+        <form>
           <input
             aria-label="Search box"
             aria-required="true"
@@ -104,8 +104,8 @@ Object {
               value="3"
             />
           </div>
-        </div>
-      </div>
+        </form>
+      </section>
       <ul
         class="books-list"
       />
